@@ -1,0 +1,167 @@
+uid,type,id,data_type
+20,testtype,testid,text
+21,tinkerforge/accelerometer/acceleration/z,03/pz206026/v75,double precision
+22,tinkerforge/barometer/altitude,03/pz206026/vJ6,double precision
+23,tinkerforge/accelerometer/acceleration/x,03/pz206026/v75,double precision
+24,tinkerforge/sound_intensity/intensity,03/pz206026/vqS,bigint
+25,test/dummy/time,server01/local,double precision
+26,tinkerforge/accelerometer/acceleration/y,03/pz206026/v75,double precision
+27,tinkerforge/barometer/air_pressure,03/pz206026/vJ6,double precision
+28,tinkerforge/ambient_light_v2/illuminance,03/pz206026/uL1,double precision
+29,tinkerforge/barometer/chip_temperature,03/pz206026/vJ6,double precision
+30,tinkerforge/humidity/humidity,03/pz206026/um9,double precision
+31,tinkerforge/accelerometer/temperature,03/pz206026/v75,double precision
+32,tinkerforge/co2/co2_concentration,03/pz206026/xt4,bigint
+33,openweathermap/current/humidity,at/graz,double precision
+34,openweathermap/current/weather/description,at/graz,text
+35,openweathermap/current/weather/id,at/graz,bigint
+36,openweathermap/current/wind/speed,at/graz,double precision
+37,openweathermap/current/air_pressure,at/graz,double precision
+38,tinkerforge/temperature/temperature,03/pz206026/tiL,double precision
+39,tinkerforge/motion_detector/motion_detected,03/pz206026/wtB,boolean
+40,openweathermap/current/temperature,at/graz,double precision
+41,openweathermap/current/weather/group,at/graz,text
+42,openweathermap/current/cloudiness,at/graz,double precision
+43,openweathermap/current/wind/direction,at/graz,double precision
+44,openweathermap/current/rain_volume,at/graz,double precision
+86,gembird/egm-pwm-lan/current,html/p1eg028f/hexcluster/case,double precision
+87,gembird/egm-pwm-lan/apparent_power,html/p1eg028f/hexcluster/maelcum,double precision
+88,gembird/egm-pwm-lan/apparent_power,html/p1eg028f/kddesksockets,double precision
+89,gembird/egm-pwm-lan/apparent_power,html/p1eg028f/pc02,double precision
+90,gembird/egm-pwm-lan/voltage,html/p1eg028f/hexcluster/maelcum,double precision
+91,gembird/egm-pwm-lan/voltage,html/p1eg028f/kddesksockets,double precision
+92,gembird/egm-pwm-lan/current,html/p1eg028f/hexcluster/maelcum,double precision
+93,gembird/egm-pwm-lan/power,html/p1eg028f/pc02,double precision
+94,gembird/egm-pwm-lan/current,html/p1eg028f/pc02,double precision
+95,gembird/egm-pwm-lan/power,html/p1eg028f/hexcluster/case,double precision
+96,gembird/egm-pwm-lan/voltage,html/p1eg028f/pc01,double precision
+97,gembird/egm-pwm-lan/power,html/p1eg028f/hexcluster/maelcum,double precision
+98,gembird/egm-pwm-lan/power,html/p1eg028f/kddesksockets,double precision
+99,gembird/egm-pwm-lan/apparent_power,html/p1eg028f/server01,double precision
+100,gembird/egm-pwm-lan/current,html/p1eg028f/pc01,double precision
+101,gembird/egm-pwm-lan/voltage,html/p1eg028f/server01,double precision
+102,gembird/egm-pwm-lan/current,html/p1eg028f/server01,double precision
+103,gembird/egm-pwm-lan/current,html/p1eg028f/kddesksockets,double precision
+104,gembird/egm-pwm-lan/voltage,html/p1eg028f/hexcluster/case,double precision
+105,gembird/egm-pwm-lan/power,html/p1eg028f/pc01,double precision
+106,gembird/egm-pwm-lan/voltage,html/p1eg028f/pc02,double precision
+107,gembird/egm-pwm-lan/apparent_power,html/p1eg028f/pc01,double precision
+108,gembird/egm-pwm-lan/power,html/p1eg028f/server01,double precision
+109,gembird/egm-pwm-lan/apparent_power,html/p1eg028f/hexcluster/case,double precision
+110,tinkerforge/sound_intensity/intensity,02/pz206080/moK,bigint
+111,tinkerforge/ambient_light/illuminance,02/pz206080/m3v,double precision
+112,tinkerforge/barometer/air_pressure,02/pz206080/vJf,double precision
+113,tinkerforge/moisture/moisture_value,02/pz206080/uU9,bigint
+114,tinkerforge/barometer/altitude,02/pz206080/vJf,double precision
+115,tinkerforge/co2/co2_concentration,02/pz206080/xsV,bigint
+116,tinkerforge/temperature/temperature,02/pz206080/qnL,double precision
+117,tinkerforge/barometer/chip_temperature,02/pz206080/vJf,double precision
+118,tinkerforge/motion_detector/motion_detected,02/pz206080/qoh,boolean
+119,tinkerforge/humidity/humidity,02/pz206080/ujN,double precision
+120,tinkerforge/laser_range_finder/distance,01/p1eg028f/vcd,double precision
+121,tinkerforge/laser_range_finder/velocity,01/p1eg028f/vcd,double precision
+122,tinkerforge/io16/port/b,01/p1eg028f/qK5,bigint
+123,tinkerforge/dust_detector/dust_density,01/p1eg028f/vnt,double precision
+124,tinkerforge/io16/port/a,01/p1eg028f/qK5,bigint
+125,tinkerforge/load_cell/weight,01/p1eg028f/veA,double precision
+126,tinkerforge/distance_ir/distance,01/p1eg028f/w3u,double precision
+127,tinkerforge/distance_us/distance_value,01/p1eg028f/nZA,double precision
+128,tinkerforge/accelerometer/acceleration/z,02/pz206080/Cga,double precision
+129,tinkerforge/accelerometer/temperature,02/pz206080/Cga,double precision
+130,tinkerforge/accelerometer/acceleration/y,02/pz206080/Cga,double precision
+131,tinkerforge/accelerometer/acceleration/x,02/pz206080/Cga,double precision
+132,tinkerforge/accelerometer/temperature,03/pz205058/v75,double precision
+133,tinkerforge/accelerometer/acceleration/z,03/pz205058/v75,double precision
+134,tinkerforge/accelerometer/acceleration/y,03/pz205058/v75,double precision
+135,tinkerforge/accelerometer/acceleration/x,03/pz205058/v75,double precision
+136,tinkerforge/motion_detector/motion_detected,03/pz205058/wtB,boolean
+137,tinkerforge/ambient_light_v2/illuminance,03/pz205058/uL1,double precision
+138,tinkerforge/co2/co2_concentration,03/pz205058/xt4,bigint
+139,tinkerforge/barometer/air_pressure,03/pz205058/vJ6,double precision
+140,tinkerforge/barometer/altitude,03/pz205058/vJ6,double precision
+141,tinkerforge/barometer/chip_temperature,03/pz205058/vJ6,double precision
+142,tinkerforge/humidity/humidity,03/pz205058/um9,double precision
+143,tinkerforge/sound_intensity/intensity,03/pz205058/vqS,bigint
+144,tinkerforge/temperature/temperature,03/pz205058/tiL,double precision
+145,tinkerforge/accelerometer/temperature,04/pz205050/ChE,double precision
+146,tinkerforge/accelerometer/acceleration/z,04/pz205050/ChE,double precision
+147,tinkerforge/motion_detector/motion_detected,04/pz205050/BUD,boolean
+148,tinkerforge/accelerometer/acceleration/x,04/pz205050/ChE,double precision
+149,tinkerforge/accelerometer/acceleration/y,04/pz205050/ChE,double precision
+150,tinkerforge/ambient_light_v2/illuminance,04/pz205050/yHN,double precision
+151,tinkerforge/co2/co2_concentration,04/pz205050/CVA,bigint
+152,tinkerforge/barometer/altitude,04/pz205050/ytY,double precision
+153,tinkerforge/barometer/air_pressure,04/pz205050/ytY,double precision
+154,tinkerforge/barometer/chip_temperature,04/pz205050/ytY,double precision
+155,tinkerforge/sound_intensity/intensity,04/pz205050/B3j,bigint
+156,tinkerforge/temperature/temperature,04/pz205050/zGA,double precision
+157,tinkerforge/humidity_v2/temperature,04/pz205050/DjJ,double precision
+158,tinkerforge/humidity_v2/humidity,04/pz205050/DjJ,double precision
+167,tinkerforge/humidity_v2/chip_temperature,04/pz205050/DjJ,double precision
+169,tinkerforge/accelerometer/temperature,05/pz205050/CgL,double precision
+170,tinkerforge/ambient_light_v2/illuminance,05/pz205050/yGr,double precision
+171,tinkerforge/motion_detector/motion_detected,05/pz205050/BYx,boolean
+172,tinkerforge/co2/co2_concentration,05/pz205050/CVX,bigint
+173,tinkerforge/barometer/air_pressure,05/pz205050/yvB,double precision
+174,tinkerforge/barometer/altitude,05/pz205050/yvB,double precision
+175,tinkerforge/barometer/chip_temperature,05/pz205050/yvB,double precision
+176,tinkerforge/sound_intensity/intensity,05/pz205050/Bu1,bigint
+177,tinkerforge/humidity_v2/humidity,05/pz205050/Dh9,double precision
+178,tinkerforge/humidity_v2/temperature,05/pz205050/Dh9,double precision
+179,tinkerforge/humidity_v2/chip_temperature,05/pz205050/Dh9,double precision
+180,tinkerforge/temperature/temperature,05/pz205050/zuU,double precision
+181,tinkerforge/accelerometer/acceleration/x,05/pz205050/CgL,double precision
+182,tinkerforge/accelerometer/acceleration/z,05/pz205050/CgL,double precision
+183,tinkerforge/accelerometer/acceleration/y,05/pz205050/CgL,double precision
+184,tinkerforge/motion_detector/motion_detected,06/p1eg028f/BVL,boolean
+185,tinkerforge/accelerometer/acceleration/y,06/p1eg028f/Ch5,double precision
+186,tinkerforge/accelerometer/temperature,06/p1eg028f/Ch5,double precision
+187,tinkerforge/accelerometer/acceleration/z,06/p1eg028f/Ch5,double precision
+188,tinkerforge/accelerometer/acceleration/x,06/p1eg028f/Ch5,double precision
+189,tinkerforge/co2/co2_concentration,06/p1eg028f/D1Y,bigint
+190,tinkerforge/ambient_light_v2/illuminance,06/p1eg028f/yJ9,double precision
+191,tinkerforge/sound_intensity/intensity,06/p1eg028f/B4x,bigint
+192,tinkerforge/barometer/chip_temperature,06/p1eg028f/ysU,double precision
+193,tinkerforge/barometer/air_pressure,06/p1eg028f/ysU,double precision
+194,tinkerforge/barometer/altitude,06/p1eg028f/ysU,double precision
+195,tinkerforge/humidity_v2/humidity,06/p1eg028f/DeE,double precision
+196,tinkerforge/temperature/temperature,06/p1eg028f/zGW,double precision
+197,tinkerforge/humidity_v2/temperature,06/p1eg028f/DeE,double precision
+198,tinkerforge/humidity_v2/chip_temperature,06/p1eg028f/DeE,double precision
+199,performance/cpu/total,studentlab/server01,double precision
+200,performance/memory/main,studentlab/server01,bigint
+201,performance/memory/swap,studentlab/server01,bigint
+202,performance/disk/system,studentlab/server01,bigint
+203,performance/disk/data,studentlab/server01,bigint
+204,gembird/egm-pwm-lan/current,html/p1eg028f/workbench,double precision
+205,gembird/egm-pwm-lan/voltage,html/p1eg028f/workbench,double precision
+206,gembird/egm-pwm-lan/power,html/p1eg028f/workbench,double precision
+207,gembird/egm-pwm-lan/apparent_power,html/p1eg028f/workbench,double precision
+208,tinkerforge/barometer/air_pressure,08/pz206012/vHf,double precision
+209,tinkerforge/ambient_light_v2/illuminance,08/pz206012/yAJ,double precision
+211,tinkerforge/accelerometer/acceleration/x,08/pz206012/zXq,double precision
+212,tinkerforge/humidity/humidity,08/pz206012/xzT,double precision
+213,tinkerforge/accelerometer/acceleration/y,08/pz206012/zXq,double precision
+214,tinkerforge/barometer/altitude,08/pz206012/vHf,double precision
+215,tinkerforge/sound_intensity/intensity,08/pz206012/voq,bigint
+216,tinkerforge/barometer/chip_temperature,08/pz206012/vHf,double precision
+217,tinkerforge/accelerometer/acceleration/z,08/pz206012/zXq,double precision
+218,tinkerforge/co2/co2_concentration,08/pz206012/Azj,bigint
+219,tinkerforge/temperature/temperature,08/pz206012/zbr,double precision
+220,tinkerforge/accelerometer/temperature,08/pz206012/zXq,double precision
+221,tinkerforge/motion_detector/motion_detected,07/pz206026/BQt,boolean
+222,tinkerforge/co2/co2_concentration,07/pz206026/D1Z,bigint
+223,tinkerforge/accelerometer/temperature,07/pz206026/Ch5,double precision
+224,tinkerforge/ambient_light_v2/illuminance,07/pz206026/yLX,double precision
+225,tinkerforge/sound_intensity/intensity,07/pz206026/B37,bigint
+226,tinkerforge/accelerometer/acceleration/x,07/pz206026/Ch5,double precision
+227,tinkerforge/accelerometer/acceleration/y,07/pz206026/Ch5,double precision
+228,tinkerforge/accelerometer/acceleration/z,07/pz206026/Ch5,double precision
+229,tinkerforge/temperature/temperature,07/pz206026/zjy,double precision
+230,tinkerforge/barometer/air_pressure,07/pz206026/yro,double precision
+231,tinkerforge/barometer/altitude,07/pz206026/yro,double precision
+232,tinkerforge/barometer/chip_temperature,07/pz206026/yro,double precision
+233,tinkerforge/humidity_v2/humidity,07/pz206026/Dg8,double precision
+234,tinkerforge/humidity_v2/temperature,07/pz206026/Dg8,double precision
+235,tinkerforge/humidity_v2/chip_temperature,07/pz206026/Dg8,double precision
+236,tinkerforge/motion_detector/motion_detected,08/pz206012/whm,boolean

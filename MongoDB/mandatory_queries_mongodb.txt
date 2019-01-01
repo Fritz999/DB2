@@ -1,0 +1,25 @@
+// -----------------
+// Mandatory queries
+// -----------------
+
+// --------------------------------------------------------------
+// 1. All values within a certain time range for a single sensor
+// --------------------------------------------------------------
+
+// Sensor named with point_uid
+
+db.measured_values.find( 
+  {
+      timestamp: {
+          $gte: ISODate("2017-05-05T18:00:00.000Z"),
+          $lte: ISODate("2017-05-05T18:30:00.000Z")
+          },
+      point_uid: 26    
+  },
+  {
+      point_uid: 1,
+      float_value: 1  
+  }
+)
+
+// [...]

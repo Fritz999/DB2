@@ -1,0 +1,54 @@
+// ------------------------------
+// 1. Import data from values.csv
+// ------------------------------
+
+// Should work with csv header with --headerline, but hasn't so far.
+// Workaround: delete header of csv file "value_test.csv" and use --fields instead of --headerline
+// Delete header of orginal big "value.csv" with  Bash: tail -n +2 values.csv > values_new.csv
+
+// Test mit values_test.csv
+C:\MongoDB\Server\4.0\bin\mongoimport --db db2_ws2018_19_test --collection measured_values --drop --type csv --columnsHaveTypes --fields "point_uid.int32(),timestamp.date(2006-01-02 15:04:05),boolean_value.string(),integer_value.int32(),float_value.double(),string_value.string()" --file "D:\Bernd\Daten\Informatik\VU DB2\values_test.csv"  --ignoreBlanks
+// Run time (1M data records): 14 sec :)
+
+// Import from values_without_first_line.csv
+C:\MongoDB\Server\4.0\bin\mongoimport --db db2_ws2018_19 --collection measured_values --drop --type csv --columnsHaveTypes --fields "point_uid.int32(),timestamp.date(2006-01-02 15:04:05),boolean_value.string(),integer_value.int32(),float_value.double(),string_value.string()" --file "C:\Users\Bernd\Documents\Informatik\LV\2018_19\VU DB2\UE\values_without_first_line.csv"  --ignoreBlanks
+// Run time (214M data records): 55 min :)
+
+
+
+
+// ---------------------------------------------------
+// 2. Merge with data from points.csv with mongoimport
+// ---------------------------------------------------
+
+// 2.1 Create an index over point_uid //
+
+// Tip: See https://docs.mongodb.com/manual/reference/program/mongoimport/#cmdoption-mongoimport-upsertfields
+
+C:\MongoDB\Server\4.0\bin\mongo
+use db2_ws2018_2019_test
+db.measured_values.createIndex( { point_uid: 1 } )
+
+// 2.2 Merge //
+
+// Preparation of points.csv: 
+// Rename uid to point_uid, delete column data_type in points.csv ... 
+// ... as field data_type is not needed, delete test row
+
+C:\MongoDB\Server\4.0\bin\mongoimport --db db2_ws2018_19_test --collection measured_values --type csv --mode merge --upsertFields point_uid --headerline --file "C:\Users\Bernd\Documents\Informatik\LV\2018_19\VU DB2\UE\points_prepared_for_merging.csv" 
+
+// Problem: run time (1M data records): 1 min 26 sec :( That's a lot for 214M data records!
+// Possibly faster: 
+// - Merge both csv files with a csv tool (e.g. awk) and then import the data with mongoimport
+
+C:\MongoDB\Server\4.0\bin\mongoimport --db db2_ws2018_19 --collection measured_values --type csv --mode merge --upsertFields point_uid --headerline --file "C:\Users\Bernd\Documents\Informatik\LV\2018_19\VU DB2\UE\points_prepared_for_merging.csv"
+
+// Problem: Adds type and id fields just to 25 documents [???] without any failure message.
+
+// 2.3 Delete documents without matches with measured points, if there are any //
+
+// If there are measuring points that are not used in the current data set mongoimport imports them as separate objects into the measured values collection - instead of merging them with a measured value.
+
+C:\MongoDB\Server\4.0\bin\mongo
+use db2_ws2018_2019_test
+db.measured_values.deleteMany( { timestamp : { $exists: false } } )
