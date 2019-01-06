@@ -164,3 +164,66 @@ _id:null,
 }
 }
 ])
+
+
+//-- -----------------------------------------------------------
+//-- 4. Softsensor room climate: temperature + humiditiy in room pz206026 (Inffeldg. 13/6)
+//-- -----------------------------------------------------------
+
+db.measured_values.find(
+  {
+    point_uid: 31,
+    timestamp: {
+    $lte: ISODate("2017-05-05 18:27:48.000000")
+    },
+  },
+  {
+    timestamp: 1,
+    point_uid:1, boolean_value:1, integer_value:1,float_value:1,string_value:1
+  }
+).sort({timestamp: -1}).limit(1)
+
+db.measured_values.find(
+  {
+    point_uid: 30,
+    timestamp: {
+    $lte: ISODate("2017-05-05 18:27:48.000000")
+    },
+  },
+  {
+    timestamp: 1,
+    point_uid:1, boolean_value:1, integer_value:1,float_value:1,string_value:1
+  }
+).sort({timestamp: -1}).limit(1)
+
+//-------------------------------------------
+db.measured_values.aggregate( [
+  {
+    $project:
+      {
+        "point_uid" : 1,
+        "room_climate_temperature" :
+        {
+          $switch:
+            {
+              branches: [
+                {
+                  case: { $lt : [ { $avg : "$scores" }, 18 ] },
+                  then: "Doing great!"
+                },
+                {
+                  case: { $and : [ { $gte : [ { $avg : "$scores" }, 80 ] },
+                                   { $lt : [ { $avg : "$scores" }, 90 ] } ] },
+                  then: "Doing pretty well."
+                },
+                {
+                  case: { $lt : [ { $avg : "$scores" }, 80 ] },
+                  then: "Needs improvement."
+                }
+              ],
+              default: "No scores found."
+            }
+         }
+      }
+   }
+] )
