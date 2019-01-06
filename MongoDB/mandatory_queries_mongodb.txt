@@ -8,18 +8,138 @@
 
 // Sensor named with point_uid
 
-db.measured_values.find( 
+db.measured_values.find(
   {
       timestamp: {
           $gte: ISODate("2017-05-05T18:00:00.000Z"),
           $lte: ISODate("2017-05-05T18:30:00.000Z")
           },
-      point_uid: 26    
+      point_uid: 26
   },
   {
       point_uid: 1,
-      float_value: 1  
+      float_value: 1
   }
 )
 
-// [...]
+//-- ---------------------------------------
+// 2. Single data point for a given sensor
+//-- ---------------------------------------
+
+//-- 2.1 Linear Interpolation
+
+var a = db.measured_values.find(
+  {
+    point_uid:  21,
+    timestamp: {
+    $lte: ISODate("2017-05-05 18:27:40.000000")
+    },
+  },
+  {
+    timestamp: 1,
+  }
+).sort({timestamp: -1}).limit(1)
+
+var b = db.measured_values.find(
+  {
+    point_uid:  21,
+    timestamp: {
+    $gte: ISODate("2017-05-05 18:27:40.000000")
+    },
+  },
+  {
+    timestamp: 1,
+    float_value: 1
+  }
+).sort({timestamp: 1}).limit(1)
+
+
+db.measured_values.aggregate([
+ {
+   $project:
+     {
+      point_uid: 21,
+      dateDifference:
+      {
+         $subtract: [ "$date", 5 * 60 * 1000 ]
+      }
+    }
+}])
+//var c = formel hier einsetzen
+
+//-----------------------------
+//-- 2.2 Forward Fill
+//-----------------------------
+db.measured_values.find(
+  {
+    point_uid: 121,
+    timestamp: {
+    $lte: ISODate("2017-12-01T18:51:47.663Z")
+    },
+  },
+  {
+    timestamp: 1,
+    point_uid: 1
+  }
+).sort({timestamp: -1}).limit(1)
+
+//-- -----------------------------------------------------------
+//-- 3.1 Maximum for a single sensor within a certain time range
+//-- -----------------------------------------------------------
+
+db.measured_values.find(
+  {
+    point_uid: 21,
+    timestamp: {
+    $gte: ISODate("2017-05-05T00:00:00.000Z"),
+    $lte: ISODate("2017-05-05T23:59:59.999Z")
+    },
+  },
+  {
+    point_uid: 1,
+    timestamp: 1, boolean_value:1, integer_value:1,float_value:1,string_value:1
+  }
+).sort({float_value:-1}).limit(1)
+
+//-- -----------------------------------------------------------
+//-- 3.2 Minimum for a single sensor within a certain time range
+//-- -----------------------------------------------------------
+
+db.measured_values.find(
+  {
+    point_uid: 21,
+    timestamp: {
+    $gte: ISODate("2017-05-05T00:00:00.000Z"),
+    $lte: ISODate("2017-05-05T23:59:59.999Z")
+    },
+  },
+  {
+    point_uid: 1,
+    timestamp: 1, boolean_value:1, integer_value:1,float_value:1,string_value:1
+  }
+).sort({float_value:1}).limit(1)
+
+//-- -----------------------------------------------------------
+//-- 3.3 Average for a single sensor within a certain time range
+//-- -----------------------------------------------------------
+
+
+//------------
+db.measured_values.aggregate([
+{
+  $match: {
+  timestamp: {
+  $gte: ISODate("2017-05-05T00:00:00.000Z"),
+  $lte: ISODate("2017-05-05T23:59:59.999Z")
+  },
+  point_uid:21
+  }
+},
+{
+$group:
+{
+_id:null,
+  avg_value: { $avg: "$float_value"}
+}
+}
+])

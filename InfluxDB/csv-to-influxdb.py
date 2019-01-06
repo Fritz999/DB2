@@ -71,7 +71,7 @@ def loadCsv(inputfilename, servername, user, password, dbname, metric,
     #             pass
     #             raise ValueError('no valid date format found')
 def try_parsing_date(row):
-    for fmt in ('%Y-%m-%d', '%d.%m.%Y', '%d/%m/%Y'):
+    for fmt in ('%Y-%m-%d %H:%M:%S.%f', '%Y-%m-%d %H:%M:%S'):
         try:
             return datetime.strptime(row[timecolumn], fmt)
         except ValueError:
