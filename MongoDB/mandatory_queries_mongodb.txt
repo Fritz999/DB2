@@ -37,6 +37,7 @@ var a = db.measured_values.find(
   },
   {
     timestamp: 1,
+    float_value: 1
   }
 ).sort({timestamp: -1}).limit(1)
 
@@ -53,7 +54,27 @@ var b = db.measured_values.find(
   }
 ).sort({timestamp: 1}).limit(1)
 
+//--------------------------------------
+db.measured_values.aggregate([
+{
+  $match: {
+  timestamp: {
+  $lte: ISODate("2017-05-05 18:27:40.000000")
+  },
+  point_uid:21
+  }
 
+},
+{
+$group:
+{
+_id:null,
+  a: { $avg: "$float_value"}
+}
+])
+
+
+//---------------------------------
 db.measured_values.aggregate([
  {
    $project:
