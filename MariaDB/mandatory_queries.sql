@@ -63,10 +63,10 @@ SELECT FROM_UNIXTIME(@timestamp_next_value) AS 'Timestamp next value', @next_val
 SELECT @given_timestamp AS 'Selected timestamp', ((@latest_value - @next_value)/(@timestamp_latest_value - @timestamp_next_value) * (UNIX_TIMESTAMP(@given_timestamp) - @timestamp_next_value) + @next_value) AS 'Linearly interpolated value';
 
 -- 2.2 Forward Fill
-SELECT point_uid, COALESCE(boolean_value, integer_value, float_value, string_value) AS 'Forward fill value'
+SELECT point_uid, time_stamp, COALESCE(boolean_value, integer_value, float_value, string_value) AS 'Forward fill value'
 FROM measured_values
-WHERE point_uid = 121
-AND time_stamp <= '2017-12-01 18:51:47.663088' -- "Empty set", if no value
+WHERE point_uid = 31
+AND time_stamp <= '2018-01-01 00:00:00.000000' -- "Empty set", if no value
 ORDER BY time_stamp DESC
 LIMIT 1; -- First row from results
 
@@ -75,10 +75,11 @@ LIMIT 1; -- First row from results
 -- -----------------------------------------------------------
 
 -- Sensor named with point_uid
+-- Ex.: Nr. 31 
 SELECT MAX(COALESCE(boolean_value, integer_value, float_value, string_value)) AS 'Maximum value'
 FROM measured_values 
-WHERE point_uid = 21
-AND (time_stamp BETWEEN '2017-05-05 00:00:00.000' AND '2017-05-05 23:59:59.999');
+WHERE point_uid = 31
+AND (time_stamp BETWEEN '2017-05-06 00:00:00.000' AND '2017-05-06 23:59:59.999');
 
 -- Sensor named with type and id
 
@@ -131,8 +132,8 @@ AND (time_stamp BETWEEN '2017-05-05 00:00:00.000' AND '2017-12-31 23:59:59.999')
 -- Sensor named with point_uid
 SELECT AVG(COALESCE(boolean_value, integer_value, float_value, string_value)) AS 'Average value'
 FROM measured_values 
-WHERE point_uid = 21
-AND (time_stamp BETWEEN '2017-05-05 00:00:00.000' AND '2017-05-05 23:59:59.999');
+WHERE point_uid = 31
+AND (time_stamp BETWEEN '2017-05-06 00:00:00.000' AND '2017-05-06 23:59:59.999');
 
 -- Sensor named with type and id
 SET @point_uid = (
@@ -200,6 +201,15 @@ SELECT @room_climate_humidity; -- DEBUG
 SELECT (@room_climate_temperature + @room_climate_humidity)/2 AS 'room climate in room pz206026';
 
 -- TODO: Sicherstellen, das letzte Messung nicht länger als halbe Stunde vor gewählten Zeitpunkt ist
+
+-- =====================
+-- Diverse Hilfsabfragen
+-- =====================
+
+SELECT count(*)
+FROM measured_values 
+WHERE point_uid = 31
+AND (time_stamp BETWEEN '2017-05-06 00:00:00.000' AND '2017-05-06 23:59:59.999');
 
 
 

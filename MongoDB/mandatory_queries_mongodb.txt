@@ -93,14 +93,15 @@ db.measured_values.aggregate([
 //-----------------------------
 db.measured_values.find(
   {
-    point_uid: 121,
+    point_uid: 31,
     timestamp: {
-    $lte: ISODate("2017-12-01T18:51:47.663Z")
+    $lte: ISODate("2018-01-01T00:00:00.000Z")
     },
   },
   {
+    point_uid: 1,
     timestamp: 1,
-    point_uid: 1
+    float_value: 1
   }
 ).sort({timestamp: -1}).limit(1)
 
@@ -110,10 +111,10 @@ db.measured_values.find(
 
 db.measured_values.find(
   {
-    point_uid: 21,
+    point_uid: 31,
     timestamp: {
-    $gte: ISODate("2017-05-05T00:00:00.000Z"),
-    $lte: ISODate("2017-05-05T23:59:59.999Z")
+    $gte: ISODate("2017-05-06T00:00:00.000Z"),
+    $lte: ISODate("2017-05-06T23:59:59.999Z")
     },
   },
   {
@@ -150,10 +151,10 @@ db.measured_values.aggregate([
 {
   $match: {
   timestamp: {
-  $gte: ISODate("2017-05-05T00:00:00.000Z"),
-  $lte: ISODate("2017-05-05T23:59:59.999Z")
+  $gte: ISODate("2017-05-06T00:00:00.000Z"),
+  $lte: ISODate("2017-05-06T23:59:59.999Z")
   },
-  point_uid:21
+  point_uid:31
   }
 },
 {
