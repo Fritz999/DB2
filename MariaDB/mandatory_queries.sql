@@ -212,6 +212,29 @@ WHERE point_uid = 31
 AND (time_stamp BETWEEN '2017-05-06 00:00:00.000' AND '2017-05-06 23:59:59.999');
 
 
+-- ========================
+-- Hypothese
+-- ========================
+SET @senor_nr = 32;
+SELECT
+(
+(
+  SELECT COUNT(*)
+  FROM measured_values
+  WHERE point_uid = @senor_nr
+  ) /
+  (
+      SELECT TIMESTAMPDIFF(SQL_TSI_SECOND, (
+      SELECT MIN(time_stamp) FROM measured_values WHERE point_uid = @senor_nr
+      ),(
+    SELECT MAX(time_stamp) FROM measured_values WHERE point_uid = @senor_nr
+    )
+  ) / 5
+  )
+);
+
+
+
 
 
 

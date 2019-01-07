@@ -12,4 +12,4 @@ SELECT MAX(COALESCE(time_stamp)) FROM measured_values WHERE point_uid = 21
   FROM measured_values
   WHERE point_uid = 21
   )
-)
+);
